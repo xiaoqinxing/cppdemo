@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project (Demo)
+project (SpdlogDemo)
 
 set(SOURCES 
     ${PROJECT_SOURCE_DIR}/src/demo.cpp

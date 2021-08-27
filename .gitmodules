@@ -1,3 +1,6 @@
 [submodule "open_source/spdlog"]
 	path = open_source/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "open_source/rpclib"]
+	path = open_source/rpclib
+	url = https://github.com/rpclib/rpclib.git
