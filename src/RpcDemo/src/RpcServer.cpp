@@ -1,6 +1,7 @@
 #include <iostream>
 #include "rpc/server.h"
 #include "rpc/this_server.h"
+#include "rpc/this_session.h"
 
 struct DataRpc
 {
@@ -40,8 +41,13 @@ int main(int argc, char *argv[])
 
     srv.bind("transport", &transport);
 
+    // 停止服务器上的所有会话
     srv.bind("stop_server", []()
              { rpc::this_server().stop(); });
+
+    // 会话表示服务器上的客户端连接，停止当前会话
+    srv.bind("exit", []()
+             { rpc::this_session().post_exit(); });
 
     // Run the server loop.
     srv.run();
