@@ -10,7 +10,9 @@ endif()
 SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb -fsanitize=address -fno-omit-frame-pointer -static-libasan")
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_HOME_DIRECTORY}/out)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_HOME_DIRECTORY}/out/bin)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_HOME_DIRECTORY}/out/lib)
+set(CMAKE_INSTALL_PREFIX ${CMAKE_HOME_DIRECTORY}/install)
 
 add_subdirectory(open_source)
 add_subdirectory(src)
