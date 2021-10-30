@@ -10,7 +10,5 @@ add_subdirectory(rpclib)
 # gtest
 add_subdirectory(googletest)
 
-# opencv
-set(BUILD_TESTS OFF)
-set(BUILD_PERF_TESTS OFF)
-add_subdirectory(opencv)
+execute_process(COMMAND source build_opencv.sh
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})

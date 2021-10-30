@@ -5,16 +5,19 @@ set(SOURCES
     ${PROJECT_SOURCE_DIR}/src/videocapture_camera.cpp
 )
 
+set(OpenCV_DIR ${CMAKE_HOME_DIRECTORY}/prebuilts/opencv/lib/cmake/opencv4)
+find_package(OpenCV REQUIRED)
+
 set(HEADER
     ${PROJECT_SOURCE_DIR}/include
-    ${CMAKE_HOME_DIRECTORY}/install/include/opencv4
+    ${OpenCV_INCLUDE_DIRS}
 )
 
 include_directories(${PROJECT_NAME} ${HEADER})
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_link_libraries(${PROJECT_NAME}
-    PUBLIC opencv_core opencv_highgui opencv_imgproc opencv_videoio
+    ${OpenCV_LIBS}
 )
 
 install(TARGETS ${PROJECT_NAME}

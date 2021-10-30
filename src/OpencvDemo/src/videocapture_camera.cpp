@@ -1,13 +1,15 @@
 #include <opencv2/core.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
-#include <opencv2/imgproc.hpp>  // cv::Canny()
+#include <opencv2/imgproc.hpp> // cv::Canny()
 #include <iostream>
 
 using namespace cv;
-using std::cout; using std::cerr; using std::endl;
+using std::cerr;
+using std::cout;
+using std::endl;
 
-int main(int, char**)
+int main(int, char **)
 {
     Mat frame;
     cout << "Opening camera..." << endl;
@@ -22,8 +24,10 @@ int main(int, char**)
     cout << "     height: " << capture.get(CAP_PROP_FRAME_HEIGHT) << endl;
     cout << "Capturing FPS: " << capture.get(CAP_PROP_FPS) << endl;
 
-    cout << endl << "Press 'ESC' to quit, 'space' to toggle frame processing" << endl;
-    cout << endl << "Start grabbing..." << endl;
+    cout << endl
+         << "Press 'ESC' to quit, 'space' to toggle frame processing" << endl;
+    cout << endl
+         << "Start grabbing..." << endl;
 
     size_t nFrames = 0;
     bool enableProcessing = false;
@@ -45,7 +49,7 @@ int main(int, char**)
             cout << "Frames captured: " << cv::format("%5lld", (long long int)nFrames)
                  << "    Average FPS: " << cv::format("%9.1f", (double)getTickFrequency() * N / (t1 - t0))
                  << "    Average time per frame: " << cv::format("%9.2f ms", (double)(t1 - t0) * 1000.0f / (N * getTickFrequency()))
-                 << "    Average processing time: " << cv::format("%9.2f ms", (double)(processingTime) * 1000.0f / (N * getTickFrequency()))
+                 << "    Average processing time: " << cv::format("%9.2f ms", (double)(processingTime)*1000.0f / (N * getTickFrequency()))
                  << std::endl;
             t0 = t1;
             processingTime = 0;
@@ -63,9 +67,9 @@ int main(int, char**)
             imshow("Frame", processed);
         }
         int key = waitKey(1);
-        if (key == 27/*ESC*/)
+        if (key == 27 /*ESC*/)
             break;
-        if (key == 32/*SPACE*/)
+        if (key == 32 /*SPACE*/)
         {
             enableProcessing = !enableProcessing;
             cout << "Enable frame processing ('space' key): " << enableProcessing << endl;
