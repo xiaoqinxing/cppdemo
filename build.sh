@@ -8,7 +8,6 @@ if [ "$1" == "clean" ];then
     rm -rf ./out
     rm -rf ./out
     rm -rf ./install
-    rm -rf ./prebuilts
     echo 'clean ok'
     exit
 fi

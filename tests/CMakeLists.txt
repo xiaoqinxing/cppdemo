@@ -1,2 +1,3 @@
 add_subdirectory(test_spdlog)
 add_subdirectory(test_gtest)
+add_subdirectory(test_condition_variable)
